@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Simple Forum</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Simple Forum</h1>
+    <p class="subtitle">Categories: Announcements · Suggestions · Polls · Questions · Show and Tell · Other</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <div class="categories" id="categories"></div>
+      <button id="reset-sample">Reset sample posts</button>
+    </section>
+
+    <section class="new-post">
+      <h2>New Post</h2>
+      <form id="post-form">
+        <label>Title<br><input type="text" id="post-title" required></label>
+        <label>Category<br>
+          <select id="post-category">
+            <option>Announcements</option>
+            <option>Suggestions</option>
+            <option>Polls</option>
+            <option>Questions</option>
+            <option>Show and Tell</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Content<br><textarea id="post-content" rows="4" required></textarea></label>
+        <label><input type="checkbox" id="is-poll"> Create as poll (comma-separated choices in the field below)</label>
+        <label>Poll choices (comma separated)<br><input type="text" id="poll-choices" placeholder="Option 1, Option 2"></label>
+        <div class="form-actions">
+          <button type="submit">Post</button>
+          <button type="button" id="clear-form">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="posts">
+      <h2>Posts</h2>
+      <div id="posts-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Local demo forum — posts are saved to localStorage.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
