@@ -7,50 +7,97 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Simple Forum</h1>
-    <p class="subtitle">Categories: Announcements · Suggestions · Polls · Questions · Show and Tell · Other</p>
-  </header>
-
-  <main>
-    <section class="controls">
-      <div class="categories" id="categories"></div>
-      <button id="reset-sample">Reset sample posts</button>
-    </section>
-
-    <section class="new-post">
-      <h2>New Post</h2>
-      <form id="post-form">
-        <label>Title<br><input type="text" id="post-title" required></label>
-        <label>Category<br>
-          <select id="post-category">
-            <option>Announcements</option>
-            <option>Suggestions</option>
-            <option>Polls</option>
-            <option>Questions</option>
-            <option>Show and Tell</option>
-            <option>Other</option>
-          </select>
-        </label>
-        <label>Content<br><textarea id="post-content" rows="4" required></textarea></label>
-        <label><input type="checkbox" id="is-poll"> Create as poll (comma-separated choices in the field below)</label>
-        <label>Poll choices (comma separated)<br><input type="text" id="poll-choices" placeholder="Option 1, Option 2"></label>
-        <div class="form-actions">
-          <button type="submit">Post</button>
-          <button type="button" id="clear-form">Clear</button>
-        </div>
+  <!-- Login Page -->
+  <div id="login-page" class="auth-page">
+    <div class="auth-container">
+      <h1>Forum</h1>
+      <h2>Sign In</h2>
+      <form id="login-form">
+        <label>Email<br><input type="email" id="login-email" required></label>
+        <label>Password<br><input type="password" id="login-password" required></label>
+        <button type="submit">Sign In</button>
       </form>
-    </section>
+      <p>Don't have an account? <a href="#" id="to-signup">Sign up</a></p>
+    </div>
+  </div>
 
-    <section class="posts">
-      <h2>Posts</h2>
-      <div id="posts-list"></div>
-    </section>
-  </main>
+  <!-- Sign Up Page -->
+  <div id="signup-page" class="auth-page hidden">
+    <div class="auth-container">
+      <h1>Forum</h1>
+      <h2>Create Account</h2>
+      <form id="signup-form">
+        <label>Username<br><input type="text" id="signup-username" required></label>
+        <label>Email<br><input type="email" id="signup-email" required></label>
+        <label>Password<br><input type="password" id="signup-password" required></label>
+        <label>Confirm Password<br><input type="password" id="signup-confirm" required></label>
+        <button type="submit">Create Account</button>
+      </form>
+      <p>Already have an account? <a href="#" id="to-login">Sign in</a></p>
+    </div>
+  </div>
 
-  <footer>
-    <p>Local demo forum — posts are saved to localStorage.</p>
-  </footer>
+  <!-- Main Forum Page -->
+  <div id="forum-page" class="hidden">
+    <header>
+      <h1>Simple Forum</h1>
+      <div class="header-actions">
+        <span id="user-greeting"></span>
+        <button id="logout-btn">Sign Out</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="controls">
+        <div class="categories-list">
+          <h3>Categories</h3>
+          <ul id="categories-menu">
+            <li><a href="#" data-category="All" class="category-link active">All Posts</a></li>
+            <li><a href="#" data-category="Announcements" class="category-link">Announcements</a></li>
+            <li><a href="#" data-category="Suggestions" class="category-link">Suggestions</a></li>
+            <li><a href="#" data-category="Polls" class="category-link">Polls</a></li>
+            <li><a href="#" data-category="Questions" class="category-link">Questions</a></li>
+            <li><a href="#" data-category="Show and Tell" class="category-link">Show and Tell</a></li>
+            <li><a href="#" data-category="Other" class="category-link">Other</a></li>
+          </ul>
+        </div>
+        <button id="reset-sample">Reset sample posts</button>
+      </section>
+
+      <section class="new-post">
+        <h2>New Post</h2>
+        <form id="post-form">
+          <label>Title<br><input type="text" id="post-title" required></label>
+          <label>Category<br>
+            <select id="post-category">
+              <option>Announcements</option>
+              <option>Suggestions</option>
+              <option>Polls</option>
+              <option>Questions</option>
+              <option>Show and Tell</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>Content<br><textarea id="post-content" rows="4" required></textarea></label>
+          <label><input type="checkbox" id="is-poll"> Create as poll (comma-separated choices in the field below)</label>
+          <label>Poll choices (comma separated)<br><input type="text" id="poll-choices" placeholder="Option 1, Option 2"></label>
+          <div class="form-actions">
+            <button type="submit">Post</button>
+            <button type="button" id="clear-form">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="posts">
+        <h2>Posts</h2>
+        <div id="posts-list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Local demo forum — posts are saved to localStorage.</p>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
